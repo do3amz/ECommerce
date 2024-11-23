@@ -1,6 +1,18 @@
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+#region add services to container
+builder.Services.AddCarter();
+builder.Services.AddMediatR(config => { config.RegisterServicesFromAssembly(typeof(Program).Assembly); });
+builder.Services.AddMarten(opt => {
+	opt.Connection(builder.Configuration.GetConnectionString("Database")!);
+}).UseLightweightSessions();
 
-app.MapGet("/", () => "Hello World!");
+#endregion
+var app = builder.Build();
+#region configure http pipeline
+app.MapCarter();
+
+
+#endregion
+
 
 app.Run();
