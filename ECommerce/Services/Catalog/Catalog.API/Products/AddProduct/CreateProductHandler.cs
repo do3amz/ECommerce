@@ -14,7 +14,7 @@ namespace Catalog.API.Products.AddProduct
 			var product = new Product()
 			{
 				Name = command.name,
-				Categoty = command.category,
+				Category = command.category,
 				Description = command.description,
 				ImageFile = command.imageFile,
 				Price = command.price
