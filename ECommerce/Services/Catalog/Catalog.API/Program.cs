@@ -1,5 +1,6 @@
 using BuildingBlocks.Behaviours;
 using BuildingBlocks.Exceptions.Handler;
+using Catalog.API.Data;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,10 @@ builder.Services.AddCarter();
 builder.Services.AddMarten(opt => {
 	opt.Connection(builder.Configuration.GetConnectionString("Database")!);
 }).UseLightweightSessions();
+if(builder.Environment.IsDevelopment())
+{
+	builder.Services.InitializeMartenWith<CatalogInitialData>();
+}
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 #endregion
 var app = builder.Build();
