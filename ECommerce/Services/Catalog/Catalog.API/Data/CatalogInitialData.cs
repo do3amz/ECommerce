@@ -28,4 +28,5 @@ namespace Catalog.API.Data
 				Price = 20
 			}
 		};
+	}
 }
