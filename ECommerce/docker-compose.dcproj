@@ -5,7 +5,7 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
     <ProjectGuid>d37b10b3-8212-4470-a8c5-6bbcb9da484d</ProjectGuid>
-    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchAction>None</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>catalog.api</DockerServiceName>
   </PropertyGroup>

@@ -26,12 +26,14 @@ builder.Services.AddStackExchangeRedisCache(cache =>
 	//cache.InstanceName = "Basket";
 });
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+builder.Services.AddHealthChecks();
 #endregion
 
 var app = builder.Build();
 #region configure pipline
 app.MapCarter();
 app.UseExceptionHandler(opts => { });
+app.UseHealthChecks("/health");
 #endregion
 
 app.Run();
