@@ -7,6 +7,8 @@
     <UserSecretsId>87958019-a6b6-4829-86d6-c75ca3bbfea4</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>
+    <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
+    <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>

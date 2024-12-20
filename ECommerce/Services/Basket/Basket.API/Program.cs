@@ -1,6 +1,7 @@
 
 using Basket.API.Data;
 using BuildingBlocks.Exceptions.Handler;
+using Discount.grpc.Protos;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
@@ -26,6 +27,10 @@ builder.Services.AddStackExchangeRedisCache(cache =>
 {
 	cache.Configuration = builder.Configuration.GetConnectionString("Redis");
 	//cache.InstanceName = "Basket";
+});
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
+{
+	options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
 });
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("Database")!).AddRedis(builder.Configuration.GetConnectionString("Redis")!);

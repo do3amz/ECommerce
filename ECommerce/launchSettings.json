@@ -3,8 +3,13 @@
     "Docker Compose": {
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
+      "composeLaunchAction": "None",
+      "composeLaunchServiceName": "discount.grpc",
       "serviceActions": {
-        "catalog.api": "StartDebugging"
+        "basketdb": "StartWithoutDebugging",
+        "catalogdb": "StartWithoutDebugging",
+        "discount.grpc": "StartDebugging",
+        "distributedcache": "StartWithoutDebugging"
       }
     }
   }
